@@ -107,21 +107,18 @@ body {
 .auth {
   width: 100%;
 }
-
 .auth-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
-
 .auth-username {
   font-size: 24px;
   font-weight: 700;
   line-height: 28px;
   color: #000000;
 }
-
 .auth-input {
   background-color: #d0cad9;
   outline: none;
@@ -132,7 +129,6 @@ body {
   margin-bottom: 64px;
   padding: 10px;
 }
-
 .auth-btn {
   font-size: 24px;
   font-weight: 700;
@@ -154,6 +150,45 @@ label[for=text] {
 
 button {
   cursor: pointer;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 56px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-left {
+  flex: 1;
+  max-width: 720px;
+  margin-right: 40px;
+}
+
+.btn {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  border-radius: 4px;
+  color: #f8f8f8;
+  cursor: pointer;
+  height: 44px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 41px;
+  color: #000000;
+  margin-bottom: 42px;
+}
+
+.btn-add {
+  background-color: #800080;
+  box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.25), inset -4px -4px 16px rgba(39, 39, 39, 0.1), inset 4px 4px 16px rgba(39, 39, 39, 0.07);
+  padding: 8px 42px;
 }
 
 /*# sourceMappingURL=style.css.map *//*# sourceMappingURL=style.css.map */
