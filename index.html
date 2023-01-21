@@ -43,6 +43,30 @@
         </button>
       </div>
     </div>
+    <div id="createTask" class="modal">
+      <div class="modal-content">
+        <form class="todo-form">
+          <label class="modal-title-label">
+            Task
+            <input id="task" type="text" class="modal-title-input" required />
+          </label>
+          <label class="modal-date-label">
+            Date
+            <input id="dueDate" type="date" class="modal-date-input" />
+          </label>
+        </form>
+        <div class="modal-buttons">
+          <button class="btn btn-cancel close">Cancel</button>
+          <button
+            class="btn btn-add button button--add"
+            id="addTodo"
+            type="submit"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
