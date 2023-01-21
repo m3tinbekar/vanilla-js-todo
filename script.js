@@ -28,7 +28,6 @@ const loginButton = document.getElementById("login");
 const addTodoButton = document.getElementById("addTodo");
 const addTask = document.getElementById("task");
 const dueDate = document.getElementById("dueDate");
-dueDate.valueAsDate = new Date();
 const checkButton = document.getElementsByClassName("todo-check");
 
 const modal = document.getElementById("createTask");
@@ -42,6 +41,7 @@ const loginPage = document.querySelector(".container-auth");
 
 const login = () => {
   name = document.getElementById("username").value;
+  renderTodos(name);
   if (name !== "") {
     todoPage.style.display = "flex";
     loginPage.style.display = "none";
@@ -128,11 +128,6 @@ const renderTodos = (username) => {
 
 btn.onclick = function () {
   modal.style.display = "block";
-};
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  modal.style.display = "none";
 };
 
 // When the user clicks anywhere outside of the modal, close it
