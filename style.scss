@@ -1,0 +1,169 @@
+/***
+    The new CSS reset - version 1.5.1 (last updated 1.3.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+ *:where(:not(iframe, canvas, img, svg, video, input):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+  }
+  
+  /* Preferred box-sizing value */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Reapply the pointer cursor for anchor tags */
+  a,
+  button {
+    cursor: revert;
+  }
+  
+  /* Remove list styles (bullets/numbers) */
+  ol,
+  ul,
+  menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* For images to not be able to exceed their container */
+  img {
+    max-width: 100%;
+  }
+  
+  /* removes spacing between cells in tables */
+  table {
+    border-collapse: collapse;
+  }
+  
+  /* revert the 'white-space' property for textarea elements on Safari */
+  textarea {
+    white-space: revert;
+  }
+  
+  /* minimum style to allow to style meter element */
+  meter {
+    -webkit-appearance: revert;
+    -moz-appearance: revert;
+         appearance: revert;
+  }
+  
+  /* reset default text opacity of input placeholder */
+  ::-moz-placeholder {
+    color: unset;
+  }
+  :-ms-input-placeholder {
+    color: unset;
+  }
+  ::placeholder {
+    color: unset;
+  }
+  
+  /* fix the feature of 'hidden' attribute.
+     display:revert; revert to element instead of attribute */
+  :where([hidden]) {
+    display: none;
+  }
+  
+  /* revert for bug in Chromium browsers
+     - fix for the content editable attribute will work properly. */
+  :where([contenteditable]) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+  }
+  
+  /* apply back the draggable feature - exist only in Chromium and Safari */
+  :where([draggable=true]) {
+    -webkit-user-drag: element;
+  }
+
+// VARIABLES
+
+$black: #000000;
+$mine-shaft: #272727;
+$alabaster: #f8f8f8;
+$fresh-eggplant: #800080;
+$mischka: #d0cad9;
+
+$ff-body: "Inter", sans-serif;
+
+$fs-36: 36px;
+$fs-24: 24px;
+
+$fw-regular: 400;
+$fw-bold: 700;
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: $mischka;
+    min-height: 100vh;
+  }
+  
+  .container-auth {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .auth {
+    width: 100%;
+  }
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;;
+    width: 100%;
+  }
+  .auth-username {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    color: $black;
+  }
+  .auth-input {
+    background-color: $mischka;
+    outline: none;
+    border: 1px solid $mine-shaft;
+    width: 400px;
+    height: 44px;
+    margin-top: 24px;
+    margin-bottom: 64px;
+    padding: 10px;
+  }
+  .auth-btn {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    border-radius: 4px;
+    color: $alabaster;
+    cursor: pointer;
+    height: 44px;
+    max-width: 256px;
+    background-color: $fresh-eggplant;
+    box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.25), inset -4px -4px 16px rgba(39, 39, 39, 0.1), inset 4px 4px 16px rgba(39, 39, 39, 0.07);
+    padding: 8px 42px;
+  }
+  label[for=text]{
+    width: 100%;
+    text-align: center;
+  }
+  button{
+    cursor: pointer;
+  }
+  /*# sourceMappingURL=style.css.map */
+  
+  
+  
