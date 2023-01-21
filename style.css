@@ -180,6 +180,10 @@ button {
   margin-right: 12px;
 }
 
+.todo-list-item {
+  margin-bottom: 42px;
+}
+
 .todo-content {
   display: flex;
   justify-content: space-between;

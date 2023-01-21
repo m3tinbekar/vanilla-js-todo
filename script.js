@@ -1,29 +1,5 @@
 let name;
 
-const days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
 const loginButton = document.getElementById("login");
 const addTodoButton = document.getElementById("addTodo");
 const addTask = document.getElementById("task");
@@ -61,9 +37,7 @@ const checkTodo = (username, date, index, status) => {
 const addTodo = (username) => {
   const task = document.getElementById("task").value;
   const dueDate = new Date(document.getElementById("dueDate").value);
-  const formattedDate = ` ${days[dueDate.getDay()]}, ${
-    months[dueDate.getMonth()]
-  } ${dueDate.getDate()}`;
+  const formattedDate = new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long', timeZone: 'Europe/Istanbul' }).format(dueDate).split(" ",3).join(" ");
 
   let todos = JSON.parse(localStorage.getItem(username)) || {};
   if (!todos[formattedDate]) {
