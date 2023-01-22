@@ -42,32 +42,36 @@ const checkTodo = (username, date, index, status) => {
 
 const addTodo = (username) => {
   const task = document.getElementById("task").value;
-  const dueDate = new Date(document.getElementById("dueDate").value);
-  const formattedDate = new Intl.DateTimeFormat("en-GB", {
-    dateStyle: "full",
-    timeStyle: "long",
-    timeZone: "Europe/Istanbul",
-  })
-    .format(dueDate)
-    .split(" ", 3)
-    .join(" ");
+  if (document.getElementById("dueDate").value === "" || task === "") {
+    window.alert("Please fill in the fields !");
+  } else {
+    const dueDate = new Date(document.getElementById("dueDate").value);
+    const formattedDate = new Intl.DateTimeFormat("en-GB", {
+      dateStyle: "full",
+      timeStyle: "long",
+      timeZone: "Europe/Istanbul",
+    })
+      .format(dueDate)
+      .split(" ", 3)
+      .join(" ");
 
-  let todos = JSON.parse(localStorage.getItem(username)) || {};
-  if (!todos[formattedDate]) {
-    todos[formattedDate] = [];
+    let todos = JSON.parse(localStorage.getItem(username)) || {};
+    if (!todos[formattedDate]) {
+      todos[formattedDate] = [];
+    }
+    todos[formattedDate].push({ task: task, done: false });
+    localStorage.setItem(username, JSON.stringify(todos));
+    modal.style.display = "none";
+    renderTodos(username);
+    window.alert("Task Succesfully Added");
   }
-  todos[formattedDate].push({ task: task, done: false });
-  localStorage.setItem(username, JSON.stringify(todos));
-  modal.style.display = "none";
-  renderTodos(username);
-  window.alert("Task Succesfully Added");
-};
 
-const deleteTodo = (username, date, index) => {
-  let todos = JSON.parse(localStorage.getItem(username));
-  todos[date].splice(index, 1);
-  localStorage.setItem(username, JSON.stringify(todos));
-  renderTodos(username);
+  const deleteTodo = (username, date, index) => {
+    let todos = JSON.parse(localStorage.getItem(username));
+    todos[date].splice(index, 1);
+    localStorage.setItem(username, JSON.stringify(todos));
+    renderTodos(username);
+  };
 };
 
 const updateTodo = (username, date, index, task, done) => {
