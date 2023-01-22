@@ -7,8 +7,8 @@ const dueDate = document.getElementById("dueDate");
 const checkButton = document.getElementsByClassName("todo-check");
 
 const modal = document.getElementById("createTask");
-const btn = document.getElementById("newTask");
-const span = document.getElementsByClassName("close")[0];
+const openModal = document.getElementById("newTask");
+const closeModal = document.getElementsByClassName("close");
 
 const todoPage = document.querySelector(".container");
 todoPage.style.display = "none";
@@ -113,13 +113,13 @@ const renderTodos = (username) => {
   dueDate.value = "";
 };
 
-btn.onclick = function () {
+openModal.onclick = function () {
   modal.style.display = "block";
 };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  if (event.target == modal) {
+  if (event.target == closeModal.close) {
     modal.style.display = "none";
   }
 };

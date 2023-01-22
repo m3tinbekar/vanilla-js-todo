@@ -383,3 +383,25 @@ button {
 }
 
 /*# sourceMappingURL=style.css.map *//*# sourceMappingURL=style.css.map */
+
+
+/*# Mobile */
+
+@media only screen and (max-width: 700px) {
+  .container{
+    padding: 28px;
+  }
+
+  .container-left{
+    margin-right: 0;
+  }
+
+  .btn{
+    height: auto;
+  }
+
+  .btn-add {
+    padding: 12px 12px;
+    text-align: center;
+  }
+}
