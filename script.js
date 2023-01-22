@@ -25,6 +25,12 @@ const login = () => {
     window.alert("Please enter Username!");
   }
 };
+document.body.addEventListener("keydown", function (e) {
+  if (e.keyCode == 13) {
+    e.preventDefault();
+    loginButton.click();
+  }
+});
 loginButton.addEventListener("click", () => login());
 
 const checkTodo = (username, date, index, status) => {
@@ -37,7 +43,14 @@ const checkTodo = (username, date, index, status) => {
 const addTodo = (username) => {
   const task = document.getElementById("task").value;
   const dueDate = new Date(document.getElementById("dueDate").value);
-  const formattedDate = new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long', timeZone: 'Europe/Istanbul' }).format(dueDate).split(" ",3).join(" ");
+  const formattedDate = new Intl.DateTimeFormat("en-GB", {
+    dateStyle: "full",
+    timeStyle: "long",
+    timeZone: "Europe/Istanbul",
+  })
+    .format(dueDate)
+    .split(" ", 3)
+    .join(" ");
 
   let todos = JSON.parse(localStorage.getItem(username)) || {};
   if (!todos[formattedDate]) {
