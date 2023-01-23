@@ -15,7 +15,8 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /* Reapply the pointer cursor for anchor tags */
@@ -56,11 +57,16 @@ meter {
 }
 
 /* reset default text opacity of input placeholder */
-::-moz-placeholder {
+
+:-ms-input-placeholder {
   color: unset;
 }
 
-:-ms-input-placeholder {
+::-webkit-input-placeholder {
+  color: unset;
+}
+
+::-ms-input-placeholder {
   color: unset;
 }
 
@@ -69,13 +75,13 @@ meter {
 }
 
 /* fix the feature of 'hidden' attribute.
-   display:revert; revert to element instead of attribute */
+     display:revert; revert to element instead of attribute */
 :where([hidden]) {
   display: none;
 }
 
 /* revert for bug in Chromium browsers
-   - fix for the content editable attribute will work properly. */
+     - fix for the content editable attribute will work properly. */
 :where([contenteditable]) {
   -moz-user-modify: read-write;
   -webkit-user-modify: read-write;
@@ -84,7 +90,7 @@ meter {
 }
 
 /* apply back the draggable feature - exist only in Chromium and Safari */
-:where([draggable=true]) {
+:where([draggable="true"]) {
   -webkit-user-drag: element;
 }
 
@@ -98,27 +104,43 @@ body {
   max-width: 400px;
   width: 100%;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   min-height: 100vh;
 }
 
 .auth {
   width: 100%;
 }
+
 .auth-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
 }
+
 .auth-username {
   font-size: 24px;
   font-weight: 700;
   line-height: 28px;
   color: #000000;
 }
+
 .auth-input {
   background-color: #d0cad9;
   outline: none;
@@ -129,6 +151,7 @@ body {
   margin-bottom: 64px;
   padding: 10px;
 }
+
 .auth-btn {
   font-size: 24px;
   font-weight: 700;
@@ -139,11 +162,12 @@ body {
   height: 44px;
   max-width: 256px;
   background-color: #800080;
-  box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.25), inset -4px -4px 16px rgba(39, 39, 39, 0.1), inset 4px 4px 16px rgba(39, 39, 39, 0.07);
+  -webkit-box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.25), inset -4px -4px 16px rgba(39, 39, 39, 0.1), inset 4px 4px 16px rgba(39, 39, 39, 0.07);
+          box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.25), inset -4px -4px 16px rgba(39, 39, 39, 0.1), inset 4px 4px 16px rgba(39, 39, 39, 0.07);
   padding: 8px 42px;
 }
 
-label[for=text] {
+label[for="text"] {
   width: 100%;
   text-align: center;
 }
@@ -157,16 +181,25 @@ button {
   width: 100%;
   padding: 56px;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
+
 .container-left {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   max-width: 720px;
   margin-right: 40px;
 }
 
 .date {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   font-size: 24px;
   font-weight: 700;
@@ -174,6 +207,7 @@ button {
   color: #000000;
   margin-bottom: 18px;
 }
+
 .date-btn {
   font-size: 24px;
   color: #800080;
@@ -185,9 +219,15 @@ button {
 }
 
 .todo-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 44px;
   width: 100%;
   border: 1px solid #272727;
@@ -198,18 +238,23 @@ button {
   line-height: 28px;
   color: #272727;
   padding: 10px 0;
+  -webkit-transition: 0.3s all;
   transition: 0.3s all;
 }
 
 .todo-content-done {
   color: #7e7a7a;
 }
+
 .todo-content-edit {
   color: #272727;
-  box-shadow: inset -4px -4px 16px rgba(39, 39, 39, 0.15), inset 4px 4px 16px rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: inset -4px -4px 16px rgba(39, 39, 39, 0.15), inset 4px 4px 16px rgba(39, 39, 39, 0.15);
+          box-shadow: inset -4px -4px 16px rgba(39, 39, 39, 0.15), inset 4px 4px 16px rgba(39, 39, 39, 0.15);
 }
+
 .todo-content-text {
   width: 80%;
+  padding-left: 16px;
 }
 
 .todo-content.is-active i {
@@ -217,13 +262,19 @@ button {
 }
 
 .todo-content.is-active .todo-content-text {
-  color: #7E7A7A;
+  color: #7e7a7a;
 }
 
 .todo-check {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 10px;
   width: 54px;
   height: 44px;
@@ -232,19 +283,28 @@ button {
   cursor: pointer;
   margin: 0;
 }
+
 .todo-check i {
   opacity: 0;
-  color: #7E7A7A;
+  color: #7e7a7a;
 }
 
 .right-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 .todo-delete {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 10px;
   width: 54px;
   height: 44px;
@@ -255,10 +315,20 @@ button {
   margin: 0;
 }
 
+.todo-delete i:hover {
+  color: red;
+}
+
 .todo-update {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 10px;
   width: 54px;
   height: 44px;
@@ -287,13 +357,22 @@ button {
 
 .btn-add {
   background-color: #800080;
-  box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.25), inset -4px -4px 16px rgba(39, 39, 39, 0.1), inset 4px 4px 16px rgba(39, 39, 39, 0.07);
+  -webkit-box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.25), inset -4px -4px 16px rgba(39, 39, 39, 0.1), inset 4px 4px 16px rgba(39, 39, 39, 0.07);
+          box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.25), inset -4px -4px 16px rgba(39, 39, 39, 0.1), inset 4px 4px 16px rgba(39, 39, 39, 0.07);
+  padding: 8px 42px;
+}
+
+.btn-modal-save {
+  background-color: #800080;
+  -webkit-box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.25), inset -4px -4px 16px rgba(39, 39, 39, 0.1), inset 4px 4px 16px rgba(39, 39, 39, 0.07);
+          box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.25), inset -4px -4px 16px rgba(39, 39, 39, 0.1), inset 4px 4px 16px rgba(39, 39, 39, 0.07);
   padding: 8px 42px;
 }
 
 .btn-cancel {
   background-color: #7e7a7a;
-  box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.1);
+  -webkit-box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.1);
+          box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.1);
   padding: 6px 58px;
 }
 
@@ -306,9 +385,10 @@ button {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #000000;
+  background-color: #000000;
 }
+
 .modal-content {
   background-color: #f8f8f8;
   margin: 15% auto;
@@ -316,20 +396,31 @@ button {
   width: 100%;
   max-width: 750px;
 }
+
 .modal-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .modal-title-label {
   font-weight: 700;
   font-size: 24px;
   line-height: 28px;
   color: #272727;
   margin-right: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 32px;
 }
+
 .modal-title-input {
   width: 100%;
   background-color: #d0cad9;
@@ -343,20 +434,31 @@ button {
   margin-left: 16px;
   height: 44px;
 }
+
 .modal-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 32px 0px;
 }
+
 .modal-date-label {
   font-weight: 700;
   font-size: 24px;
   line-height: 28px;
   color: #272727;
   margin-right: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: start;
-  align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .modal-date-input {
   background-color: #d0cad9;
   border: 1px solid #272727;
@@ -369,39 +471,72 @@ button {
   height: 44px;
   margin-left: 16px;
 }
+
 .modal-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-top: 40px;
 }
+
 .modal-buttons .btn {
   width: 100%;
   text-align: center;
 }
+
 .modal-buttons .btn:not(:last-child) {
   margin-right: 48px;
 }
-
-/*# sourceMappingURL=style.css.map *//*# sourceMappingURL=style.css.map */
-
-
-/*# Mobile */
-
 @media only screen and (max-width: 700px) {
-  .container{
+  .container-auth {
     padding: 28px;
   }
-
-  .container-left{
+  .auth-input {
+    width: 100%;
+  }
+  .container {
+    padding: 28px;
+  }
+  .container-left {
     margin-right: 0;
   }
-
-  .btn{
+  .container-right {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+  }
+  .btn {
     height: auto;
   }
-
   .btn-add {
-    padding: 12px 12px;
+    padding: 12px 0;
     text-align: center;
+    color: transparent;
+    position: relative;
+    width: 110px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .btn-add::before {
+    content: "\2b";
+    font-family: "Font Awesome 6 Free";
+    color: white;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    right: 0;
+  }
+  .btn-modal-save {
+    padding: 6px 24px;
+  }
+  .btn-cancel {
+    background-color: #7e7a7a;
+    -webkit-box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.1);
+            box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.1);
+    padding: 6px 24px;
   }
 }
+/*# sourceMappingURL=style.css.map */
