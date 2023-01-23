@@ -1,4 +1,5 @@
 let name;
+const promptDefaultValue = "";
 
 const loginButton = document.getElementById("login");
 const addTodoButton = document.getElementById("addTodo");
@@ -103,7 +104,7 @@ const renderTodos = (username) => {
           <div class="todo-content-text"> ${todo.task} </div>
           <div class="right-buttons"> 
           <button class="todo-delete" onclick="deleteTodo('${username}', '${date}', ${index})"><i class="fas fa-trash-alt"></i></button>
-          <button class="todo-update" onclick="updateTodo('${username}', '${date}', ${index}, prompt('Enter new task'), ${
+          <button class="todo-update" onclick="updateTodo('${username}', '${date}', ${index}, prompt('Enter new task',${promptDefaultValue}), ${
             todo.done
           })"><i class="fas fa-edit"></i></button></div></div>
           `;
@@ -122,7 +123,7 @@ openModal.onclick = function () {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  if (event.target == closeModal.close) {
+  if (event.target === closeModal.close) {
     modal.style.display = "none";
   }
 };
