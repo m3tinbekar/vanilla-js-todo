@@ -65,13 +65,12 @@ const addTodo = (username) => {
     renderTodos(username);
     window.alert("Task Succesfully Added");
   }
-
-  const deleteTodo = (username, date, index) => {
-    let todos = JSON.parse(localStorage.getItem(username));
-    todos[date].splice(index, 1);
-    localStorage.setItem(username, JSON.stringify(todos));
-    renderTodos(username);
-  };
+};
+const deleteTodo = (username, date, index) => {
+  let todos = JSON.parse(localStorage.getItem(username));
+  todos[date].splice(index, 1);
+  localStorage.setItem(username, JSON.stringify(todos));
+  renderTodos(username);
 };
 
 const updateTodo = (username, date, index, task, done) => {
